@@ -13,12 +13,15 @@
 정민우
 역할 - 개인카드, 방명록
 https://github.com/jung-minu
+
 박준성
 역할 - 팀원들이 좋아하는 음악들(유튜브 화면) 슬라이드
 https://github.com/somebodyhelpme119
+
 박지영
 역할 - 메인상단이미지, 방구석토크 로고, 팀소개글
 https://github.com/jiyeong2023
+
 윤승환
 역할 - 개인페이지
 https://github.com/lovelyunsh
