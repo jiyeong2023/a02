@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>개발하고잡이</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      /* 박지영 */
+
+      @import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap");
+
+      .mytitle {
+        padding-top: 40px;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-image: url("https://mstatic2.e-himart.co.kr/contents/content/upload/style/20210602/908354/thumbnail_750_propse_tagging_5740.jpg");
+        background-position: center;
+        background-size: cover;
+      }
+      .mytitle1 {
+        width: 300px;
+        height: 200px;
+        background-image: "/img/웹상단 이모지1.png";
+        background-position: right;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      .mytime {
+        width: 500px;
+        margin: 30px auto 50px auto;
+        padding: 5px;
+        box-shadow: 0px 0px 3px 0px rgb(42, 160, 7);
+        border-radius: 5px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(219, 245, 76);
+        font-family: "Gowun Dodum", sans-serif;
+      }
+
+      /* 정민우 */
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+      .persnol-image {
+        width: 1000px;
+        margin: 10px auto 50px auto;
+        font-family: "Noto Sans KR", sans-serif;
+      }
+
+      .card-img-top {
+        width: 100%;
+        height: 100%;
+      }
+
+      .card-body {
+        width: 200px;
+
+        box-shadow: 0px 0px 3px 0px black;
+
+        border-radius: 5px;
+        margin: 3px auto 3px auto;
+      }
+
+      .card-footer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .bangusuk {
+        width: 400px;
+
+        margin: 30px auto auto auto;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-family: "Noto Sans KR", sans-serif;
+      }
+      .modal-body {
+        background-image: url("https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc2jpUP%2FbtsA9TxuhPN%2FPOKTYeiv2VkKkrJiG15fO0%2Fimg.png");
+      }
+      .modal-img-itroduce {
+        padding: 0px;
+
+        background-color: white;
+
+        border-radius: 5px;
+      }
+      .col-md-9 {
+        width: 500px;
+
+        margin-left: 20px;
+
+        margin-top: 50px;
+      }
+      .guest-book {
+        width: 700px;
+
+        margin: 20px auto 0px auto;
+
+        padding: 50px;
+
+        border: 2px solid;
+
+        border-radius: 5px;
+      }
+
+      .write-btn {
+        padding-top: 10px;
+        margin-left: 530px;
+      }
+
+      .welcome {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        margin-bottom: 50px;
+        margin-top: 0px;
+      }
+
+      .guest-book-card {
+        width: 700px;
+        margin-left: 602px;
+        margin: 20px auto 20px auto;
+
+        border: 1px solid;
+        border-color: gray;
+        border-radius: 5px;
+      }
+      .blockquote {
+        font-size: 14px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-left: 15px;
+      }
+
+      /* 박준성 */
+
+      .myfa {
+        margin: auto auto auto auto;
+        padding-bottom: 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* 윤승환 */
+      .modal-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+      .modal-root {
+        background-image: url("https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/163687953364064240.jpg?w=720");
+        background-size: cover;
+        height: 1000px;
+        opacity: 0.1;
+      }
+
+      /* 아이콘에만 클릭 영역을 제한하는 추가 스타일 */
+      .carousel-control-custom {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="module">
+      // Firebase 코드 부분
+      // Firebase SDK 라이브러리 가져오기
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+      import {
+        collection,
+        addDoc,
+        query,
+        orderBy
+      } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+      import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyBdMZfWbvl-RC2ufBg4xKn8MrvVzmfeGe0",
+        authDomain: "banggusuk-3be33.firebaseapp.com",
+        projectId: "banggusuk-3be33",
+        storageBucket: "banggusuk-3be33.appspot.com",
+        messagingSenderId: "692569296544",
+        appId: "1:692569296544:web:d1e9c32b5fcfcb484b83c5",
+        measurementId: "G-TDGKYT5P7C",
+      };
+      // Firebase 인스턴스 초기화
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // 박지영
+
+      // 정민우
+
+      $("#writeguestbook").click(async function () {
+        let guestbookname = $("#guestbookname").val();
+        let write = $("#exampleFormControlTextarea1").val();
+        let guesttime = new Date().getTime();
+        if (guestbookname == "" || write == "") {
+          alert("이름과 내용을 모두 적어주세요!");
+          return;
+        }
+
+
+        let doc = {
+          guestbookname: guestbookname,
+          exampleFormControlTextarea1: write,
+          guesttime: guesttime,
+        };
+        await addDoc(collection(db, "banggusuk"), doc);
+        alert("감사합니다!");
+        getData();
+        
+        $("#guestbookname").val('');
+        $("#exampleFormControlTextarea1").val('');
+        
+      });
+
+      async function getData() {
+        const q = await query(
+          collection(db, "banggusuk"),
+          orderBy("guesttime", "asc")
+        );
+
+        let docs = await getDocs(q);
+        $("#guest-book-main").empty();
+        docs.forEach((doc) => {
+          let row = doc.data();
+
+          let guestbookname = row["guestbookname"];
+          let write = row["exampleFormControlTextarea1"];
+
+          let temp_html = `
+        <div class="guest-book-card">
+        <div class="card-header">
+          <b>${guestbookname}</b>
+        </div>
+        <div class="card-body2">
+          <blockquote class="blockquote mb-0">
+            <p>${write}</p>
+          </blockquote>
+        </div>
+      </div>`;
+          $("#guest-book-main").append(temp_html);
+        });
+      }
+
+      getData();
+
+      // 박준성
+
+      // 윤승환
+    </script>
+    <script>
+      //그 외 자바스크립트 코드 부분
+      // 박지영
+
+      // 정민우
+      function writeguestbook() {}
+
+      // 박준성
+
+      $(function stopVideo() {
+        $("#plb2").click(function () {
+          $("#carouselExampleControls").carousel("prev");
+          var len = document.getElementsByTagName("iframe");
+          for (var num = 0; num < len.length; num++) {
+            var iframe =
+              document.getElementsByTagName("iframe")[num].contentWindow;
+            iframe.postMessage(
+              '{"event":"command","func":"pauseVideo","args":""}',
+              "*"
+            );
+          }
+        });
+      });
+
+      $(function stopVideo() {
+        $("#pause").click(function () {
+          $("#carouselExampleControls").carousel("next");
+          var len = document.getElementsByTagName("iframe");
+          for (var num = 0; num < len.length; num++) {
+            var iframe =
+              document.getElementsByTagName("iframe")[num].contentWindow;
+            iframe.postMessage(
+              '{"event":"command","func":"pauseVideo","args":""}',
+              "*"
+            );
+          }
+        });
+      });
+
+      // 윤승환
+    </script>
+  </head>
+
+  <body>
+    <!-- 박지영 -->
+
+    <div class="mytitle">
+      <img src="./img/웹상단이모지1.png " />
+      <div class="mytitle1"></div>
+    </div>
+
+    <div class="bangusuk">
+      <h1>🖥방구석 개발자들🖥</h1>
+    </div>
+
+    <div class="mytime">
+      <div class="team-intro">
+        <p>
+          팀명 : 방구석개발자들<br />
+          프로젝트명 : 개발 하고잡이<br />
+          팀소개 :집을 좋아하는 사람들이 모인 팀입니다.<br />
+          조용하지만, 웹개발을 배워 일상에서 사용하고자합니다.<br />
+          팀목표: 일상에서 웹개발 활용하기.<br />
+          우리 팀의 약속 : 포기 하지 않기.
+        </p>
+      </div>
+    </div>
+
+    <!-- 정민우 -->
+
+    <div class="persnol-image" id="persnol-img">
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbsUayl%2FbtsA3yNDir3%2FY4KBAjqqJFngoHcIYW3f30%2Fimg.jpg"
+              class="card-img-top"
+              alt="..."
+              width="200"
+              height="220"
+            />
+            <div class="card-body">
+              <h5 class="card-title">정민우(팀장)</h5>
+              <p class="card-text">MBTI : INFP</p>
+            </div>
+            <div class="card-footer">
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#personal-modal1"
+              >
+                방 구경하기
+              </button>
+              <div
+                class="modal fade"
+                id="personal-modal1"
+                tabindex="-1"
+                aria-labelledby="personalModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="personalModalLabel">
+                        팀원 소개
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="container-fluid">
+                        <div class="mt-3"></div>
+                        <div class="modal-img-itroduce">
+                          <div class="row">
+                            <div class="col-md-3">
+                              <img
+                                class="modal-img"
+                                src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbsUayl%2FbtsA3yNDir3%2FY4KBAjqqJFngoHcIYW3f30%2Fimg.jpg"
+                              />
+                            </div>
+                            <div class="col-md-9">
+                              <p>이름 : 정민우</p>
+                              <p>MBTI : INFP</p>
+                              <p>한마디 : 열심히 하겠습니다!</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mt-3">
+                          <div
+                            class="accordion"
+                            id="accordionPanelsStayOpenExample"
+                          >
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingOne"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseOne1"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseOne1"
+                                >
+                                  1. 자신에 대한 설명 및 MBTI
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseOne1"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingOne"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    안녕하세요 남양주에 사는 뉴비 개발자
+                                    정민우입니다.<br />
+                                    MBTI는 중재자 역할을 맏고있는 INFP입니다.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingTwo"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseTwo1"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseTwo1"
+                                >
+                                  2. 객관적으로 살펴본 자신의 장점
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseTwo1"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingTwo"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    저의 장점은 긍정적인 마인드 입니다. 힘든일이
+                                    있어도 긍정적인 생각으로 버텨내고 이겨내는게
+                                    제 장점인것 같습니다.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingThree"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseThree1"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseThree1"
+                                >
+                                  3. 자신의 스타일 협업 스타일 소개
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseThree1"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingThree"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    저는 팀원들과 다같이 으쌰으쌰 하는 스타일
+                                    입니다.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingFour"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseFour1"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseFour1"
+                                >
+                                  4. 내일배움캠프를 통해 얻어가고싶은 목표
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseFour1"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingFour"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    사회에 나가서도 절대 꿀리지 않을 탄탄한
+                                    개발의 기본기를 얻어가고 싶습니다.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingFive"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseFive1"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseFive1"
+                                >
+                                  5. 캠프기간 동안 나와의 약속
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseFive1"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingFive"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    절대 포기하지 않기, 무엇이든 열심히 하기
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingSix"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseSix1"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseSix1"
+                                >
+                                  6. 나의 블로그 주소 및 GitHub 링크
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseSix1"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingSix"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    https://pinder123.tistory.com/<br />
+
+                                    https://github.com/jung-minu
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb6M0UQ%2FbtsA8ruvwUM%2FkvN44OzoHqY8HlLbgAnYj0%2Fimg.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">박준성(팀원)</h5>
+              <p class="card-text">MBTI : INFP</p>
+            </div>
+            <div class="card-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-toggle="modal"
+                data-bs-target="#personal-modal2"
+              >
+                방 구경하기
+              </button>
+              <div
+                class="modal fade"
+                id="personal-modal2"
+                tabindex="-1"
+                aria-labelledby="personalModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="personalModalLabel">
+                        팀원 소개
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="container-fluid">
+                        <div class="mt-3"></div>
+                        <div class="modal-img-itroduce">
+                          <div class="row">
+                            <div class="col-md-3">
+                              <img
+                                class="modal-img"
+                                src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb6M0UQ%2FbtsA8ruvwUM%2FkvN44OzoHqY8HlLbgAnYj0%2Fimg.png"
+                              />
+                            </div>
+                            <div class="col-md-9">
+                              <p>이름 : 박준성</p>
+                              <p>MBTI : INFP</p>
+                              <p>한마디 : 열심히 하겠습니다!</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mt-3">
+                          <div
+                            class="accordion"
+                            id="accordionPanelsStayOpenExample"
+                          >
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingOne"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseOne2"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseOne2"
+                                >
+                                  1. 자신에 대한 설명 및 MBTI
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseOne2"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingOne"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    안녕 하세요 전 박준성이라고 합니다 94년 이제
+                                    서른이 코앞이네요<br />
+
+                                    저는 경영학과를 나왔지만 남들과는 다른
+                                    새로운 길을 걸어보고 싶었습니다.<br />
+
+                                    4차 산업혁명이 눈앞까지 다가온 지금 코딩이
+                                    딱 눈에 들어오더군요<br />
+
+                                    참 여러번 심사숙고 했던것 같습니다. 그러나
+                                    제선택은 역시나 코딩쪽이였습니다<br />
+
+                                    하지만 저는 비전공자일뿐더러 코딩에대한
+                                    지식이 거의 전무한 상태였습니다.<br />
+
+                                    SAP에 대해 조금 배우긴했지만 프로젝트 참여
+                                    경험이 없었기 때문에 이것조차 제대로
+                                    해내기엔 역부족인감이 있었습니다. 그래서
+                                    다른 무언가를 더 해보자는 마음으로 스파르타
+                                    코틀린에 참여하게 되었습니다.<br />
+
+                                    최선은 가장 잘하는것을 하는것이고 차악은
+                                    무엇이든 하는 것 그리고 최악은 아무것도 하지
+                                    않는 것 입니다<br />
+
+                                    무엇이라도 열심히 해보겠습니다.<br />
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingTwo"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseTwo2"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseTwo2"
+                                >
+                                  2. 객관적으로 살펴본 자신의 장점
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseTwo2"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingTwo"
+                              >
+                                <div class="accordion-body">
+                                  <p>성실 뺴곤 시쳅니다..</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingThree"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseThree2"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseThree2"
+                                >
+                                  3. 자신의 스타일 협업 스타일 소개
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseThree2"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingThree"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    남들과 소통하면서 협업하는걸 좋아합니다<br />
+
+                                    혼자서 하는 작업이 없기때문에 서로 서로
+                                    소통하면서 하면 더즐겁게 작업할수있지
+                                    않을까요
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingFour"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseFour2"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseFour2"
+                                >
+                                  4. 내일배움캠프를 통해 얻어가고싶은 목표
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseFour2"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingFour"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    일단 제 타자속도가 조금 느린편입니다.
+                                    한타속도및 영타속도를 올리고싶고<br />
+
+                                    90일간의 캠프를 통해 한사람분의 몫을 다하는
+                                    코더가 되는게 목표입니다.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingFive"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseFive2"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseFive2"
+                                >
+                                  5. 캠프기간 동안 나와의 약속
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseFive2"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingFive"
+                              >
+                                <div class="accordion-body">
+                                  <p>무엇이든 도전해보기</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingSix"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseSix2"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseSix2"
+                                >
+                                  6. 나의 블로그 주소 및 GitHub 링크
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseSix2"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingSix"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    내블로그<br />
+                                    https://blog.naver.com/tjtkavkftk77<br />
+                                    github<br />
+                                    https://github.com/somebodyhelpme119
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FxAZen%2FbtsA7urvGZh%2FofKuB6Fxgd28hvNZO5p6Mk%2Fimg.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">박지영(팀원)</h5>
+              <p class="card-text">MBTI : ISTJ</p>
+            </div>
+            <div class="card-footer">
+              <button
+                type="button"
+                class="btn btn-success"
+                data-bs-toggle="modal"
+                data-bs-target="#personal-modal3"
+              >
+                방 구경하기
+              </button>
+              <div
+                class="modal fade"
+                id="personal-modal3"
+                tabindex="-1"
+                aria-labelledby="personalModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="personalModalLabel">
+                        팀원 소개
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="container-fluid">
+                        <div class="mt-3"></div>
+                        <div class="modal-img-itroduce">
+                          <div class="row">
+                            <div class="col-md-3">
+                              <img
+                                class="modal-img"
+                                src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FxAZen%2FbtsA7urvGZh%2FofKuB6Fxgd28hvNZO5p6Mk%2Fimg.png"
+                              />
+                            </div>
+                            <div class="col-md-9">
+                              <p>이름 : 박지영</p>
+                              <p>MBTI : ISTJ</p>
+                              <p>한마디 : 열심히 하겠습니다!</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mt-3">
+                          <div
+                            class="accordion"
+                            id="accordionPanelsStayOpenExample"
+                          >
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingOne"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseOne3"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseOne3"
+                                >
+                                  1. 자신에 대한 설명 및 MBTI
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseOne3"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingOne"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    안녕하세요. 저는 박지영입니다.<br />
+
+                                    저는 도서관 사서로 10년을 일하면서 공간감에
+                                    관심이 생겨 건축공간디자인학과를 알아보고,
+                                    입학하고 졸업했습니다.<br />
+
+                                    일하는 기간중에 컴퓨터 자격증외 다양한
+                                    분야에서 자격증도 따기도 했습니다.<br />
+
+                                    어떻게 보면 다른 분야이고 무슨 상관이 있냐고
+                                    할 수 있습니다.<br />
+
+                                    하지만 사서로 공간을 정리하고 재배치하는
+                                    과정을 여러해 거치면서 사전에 공간배치를
+                                    계산하고 움직였을때 대부분 공간이 맞아
+                                    들어갔습니다.<br />
+
+                                    그리고 어떻게 하면 한 공간에 대한 시야를
+                                    넒게, 잘 볼 수 있는지 나름대로 방법을
+                                    생각하기도 했습니다.<br />
+
+                                    업무볼때 필요해서 컴퓨터 자격증등 따기도
+                                    했습니다.<br />
+
+                                    이제는 웹개발에 관심이 생겨서 공부하고,
+                                    알아가보려고 합니다.<br />
+
+                                    잘 모르는 분야여서 느리지만 꾸준히 배우는
+                                    태도로 가겠습니다.<br />
+
+                                    같이 공부하시는 분들, 잘 부탁드립니다.
+                                    그리고 제 MBTI는 ISTJ 현실주의자입니다.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingTwo"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseTwo3"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseTwo3"
+                                >
+                                  2. 객관적으로 살펴본 자신의 장점
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseTwo3"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingTwo"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    무언가을 시작하면, 그것에 흥미를 느끼고, 할
+                                    수 있으면 꾸준히 하는 편입니다.<br />
+                                    - 말보다는 행동으로, 우선 실천해보고 되는지,
+                                    안되면 어떤 방법으로 바꿔서 해야 하는지
+                                    생각하고 실천하는 편입니다.<br />
+                                    - 내가 어떤 역할을 할 수 있어서 쓸모있다는
+                                    필요하다는 사람보다는,<br />
+                                    저 자체를 아끼고, 사랑하고, 존중하고자
+                                    합니다.<br />
+                                    그 만큼 다른사람에 한해서도 예의와 존중을
+                                    하고자 합니다.<br />
+                                    -할 수 있고, 해야하는 일에 대해서는 최대한
+                                    해보고 노력하는 편입니다.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingThree"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseThree3"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseThree3"
+                                >
+                                  3. 자신의 스타일 협업 스타일 소개
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseThree3"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingThree"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    제가 할 수 있는 분야에서, 할 수 있는
+                                    역량안에서 서로 의논하고,<br />
+                                    그것을 지키며 해내려고 합니다.<br />
+                                    개발 분야에 관해서는 역량도 실력도 키워야
+                                    하지만,<br />
+                                    작은 것부터 맡겨주시면 하나씩 해내고자
+                                    합니다.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingFour"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseFour3"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseFour3"
+                                >
+                                  4. 내일배움캠프를 통해 얻어가고싶은 목표
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseFour3"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingFour"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    웹 개발에 대한 역량과 실력을 쌓고, 제 것으로
+                                    만들어<br />
+                                    일상에서 잘 활용하고 싶습니다. 가능하다면
+                                    다른사람에게<br />
+                                    유익을 주는 서비스도 만들어보고 싶습니다.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingFive"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseFive3"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseFive3"
+                                >
+                                  5. 캠프기간 동안 나와의 약속
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseFive3"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingFive"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    우선 영어타자를 연습해서, 영어타자 속도를
+                                    올리도록 노력하겠습니다.<br />
+                                    - 강의를 들으면서 실습을 하며, 강사님이
+                                    알려주신 것을 익히도록 노력하겠습니다.<br />
+                                    - 강의를 듣고 해봐도 모르겠으면, 질문들을
+                                    찾아보고, 거기에도 없으면 질문을<br />
+                                    자세하게, 아는내용을 최대한 적어서 물어보고
+                                    궁금증을 해결하려고 노력하겠습니다.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingSix"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseSix3"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseSix3"
+                                >
+                                  6. 나의 블로그 주소 및 GitHub 링크
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseSix3"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingSix"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    https://liveme-2023.tistory.com/<br />
+                                    https://github.com/jiyeong2023
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcPXoQP%2FbtsBaX7yJ3N%2FKWZHjPO1jyF4s3dUk64ye1%2Fimg.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">윤승환(팀원)</h5>
+              <p class="card-text">MBTI : INFP</p>
+            </div>
+            <div class="card-footer">
+              <button
+                type="button"
+                class="btn btn-info"
+                data-bs-toggle="modal"
+                data-bs-target="#personal-modal4"
+              >
+                방 구경하기
+              </button>
+              <div
+                class="modal fade"
+                id="personal-modal4"
+                tabindex="-1"
+                aria-labelledby="personalModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="personalModalLabel">
+                        팀원 소개
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="container-fluid">
+                        <div class="mt-3"></div>
+                        <div class="modal-img-itroduce">
+                          <div class="row">
+                            <div class="col-md-3">
+                              <img
+                                class="modal-img"
+                                src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcPXoQP%2FbtsBaX7yJ3N%2FKWZHjPO1jyF4s3dUk64ye1%2Fimg.png"
+                              />
+                            </div>
+                            <div class="col-md-9">
+                              <p>이름 : 윤승환</p>
+                              <p>MBTI : INFP</p>
+                              <p>한마디 : 열심히 하겠습니다!</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mt-3">
+                          <div
+                            class="accordion"
+                            id="accordionPanelsStayOpenExample"
+                          >
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingOne"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseOne4"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseOne4"
+                                >
+                                  1. 자신에 대한 설명 및 MBTI
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseOne4"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingOne"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    자바 백엔드 개발을 하다가 코틀린이 배우고
+                                    싶어 내배캠에 참여 하게 되었습니다.<br />
+                                    잘 부탁 드려요~<br />
+                                    MBTI는 INFP 입니다.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingTwo"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseTwo4"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseTwo4"
+                                >
+                                  2. 객관적으로 살펴본 자신의 장점
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseTwo4"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingTwo4"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    저는 문제에 몰입을 잘하는게 장점이라고
+                                    생각합니다.<br />
+                                    문제가 발생했을 때 문제를 분석하고 해결해
+                                    나가는 것 자체를 즐기다 보니,<br />
+                                    문제 해결이 주 업무인 개발자라는 직업에
+                                    성향이 맞는 것 같습니다.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingThree"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseThree4"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseThree4"
+                                >
+                                  3. 자신의 스타일 협업 스타일 소개
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseThree4"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingThree"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    저는 주도적으로 작업을 하는 것을
+                                    좋아합니다.<br />
+                                    먼저 의견을 내기도 하고 상대방의 의견을 듣고
+                                    피드백하고 받는 과정을 좋아합니다.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingFour"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseFour4"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseFour4"
+                                >
+                                  4. 내일배움캠프를 통해 얻어가고싶은 목표
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseFour4"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingFour"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    코틀린을 이용한 백엔드 개발을 잘하게
+                                    되어,<br />
+                                    자바 뿐만 아니라 코틀린도 할 수 있는
+                                    개발자가 되고 싶습니다.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingFive"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseFive4"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseFive4"
+                                >
+                                  5. 캠프기간 동안 나와의 약속
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseFive4"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingFive"
+                              >
+                                <div class="accordion-body">
+                                  <p>나태해지지 않기!</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2
+                                class="accordion-header"
+                                id="panelsStayOpen-headingSix"
+                              >
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#panelsStayOpen-collapseSix4"
+                                  aria-expanded="false"
+                                  aria-controls="panelsStayOpen-collapseSix4"
+                                >
+                                  6. 나의 블로그 주소 및 GitHub 링크
+                                </button>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseSix4"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingSix"
+                              >
+                                <div class="accordion-body">
+                                  <p>
+                                    블로그 : https://lovelyunsh.tistory.com/<br />
+                                    깃허브 : https://github.com/seunghwanYun12
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 박준성 -->
+
+    <div class="position-relative" myfa>
+      <div class="position-absolute bottom-0 start-50 translate-middle-x">
+        <h3>(☞ﾟヮﾟ)☞우리팀이 좋아하는 노래🎶</h3>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row custom-height">
+        <div class="col-sm"></div>
+        <div class="col-sm">
+          <div
+            id="carouselExampleControls"
+            class="carousel slide carousel-dark"
+            data-bs-interval="false"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <iframe
+                  width="100%"
+                  height="315"
+                  src="https://www.youtube.com/embed/BBdC1rl5sKY?enablejsapi=1&si=E6icidSNk1KhGLoB"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="carousel-item">
+                <iframe
+                  id="p2"
+                  width="100%"
+                  height="315"
+                  src="https://www.youtube.com/embed/Dll-cWhSJOY?enablejsapi=1&si=gLj9ahIl4beUMGMG"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="carousel-item">
+                <iframe
+                  width="100%"
+                  height="315"
+                  src="https://www.youtube.com/embed/3LgCgG0McHM?enablejsapi=1&si=KnXfFdFpZuCaDZUQ"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="carousel-item">
+                <iframe
+                  width="100%"
+                  height="315"
+                  src="https://www.youtube.com/embed/nu3YsyDplUQ?enablejsapi=1&si=n1gkp_71Bw5AwzHb"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <button
+                id="plb2"
+                class="carousel-control-prev carousel-control-custom"
+                type="button"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                id="pause"
+                class="carousel-control-next carousel-control-custom"
+                type="button"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm"></div>
+      </div>
+    </div>
+
+    <!-- 윤승환 -->
+
+    <!-- 방명록 -->
+
+    <div class="guest-book">
+      <div class="welcome">
+        <h1>🎉방명록🎉</h1>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">이름</label>
+        <input
+          type="text"
+          class="form-control"
+          id="guestbookname"
+          placeholder="홍길동"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label"
+          >방명록</label
+        >
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="3"
+          placeholder="내용을 입력해 주세요."
+        ></textarea>
+        <div class="write-btn">
+          <button type="button" class="btn btn-primary" id="writeguestbook">
+            작성
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="guest-book-main">
+
+    </div>
+  </body>
+</html>
